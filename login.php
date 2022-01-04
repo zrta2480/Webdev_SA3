@@ -1,4 +1,7 @@
-
+<?php
+session_start();
+unset($_SESSION['user']);
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,8 +34,7 @@ if(isset($_POST['submitCredentials']))
     
     //echo $submitted_id . "<br />";
     //echo $submitted_pass . "<br />";
-
-
+    $_SESSION['user'] = $submitted_id;
 
     if (mysqli_num_rows($login_result) > 0)
     {
@@ -40,6 +42,7 @@ if(isset($_POST['submitCredentials']))
         exit();
     }
     else {
+        session_destroy();
         header("Location: login.php");
         exit();
     }

@@ -1,4 +1,11 @@
-
+<?php
+session_start();
+if(!isset($_SESSION['user']))
+{
+    header("Location: login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,7 +30,6 @@
                 <h1>Payroll System</h1>
             </div>
 
-            
 
         </div>
     </body>
