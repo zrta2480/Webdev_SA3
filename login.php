@@ -1,3 +1,10 @@
+<?php
+if(isset($_SESSION['user']))
+{
+session_destroy();
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -33,6 +40,8 @@ if(isset($_POST['submitCredentials']))
 
     if (mysqli_num_rows($login_result) > 0)
     {
+        session_start();
+        $_SESSION['user'] = $submitted_id;
         header("Location: menu.php");
         exit();
     }
@@ -44,4 +53,5 @@ if(isset($_POST['submitCredentials']))
     
 }
 
+mysqli_close($con);
 ?>
