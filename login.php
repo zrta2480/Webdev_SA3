@@ -1,9 +1,3 @@
-<?php
-if(isset($_SESSION['user']))
-{
-session_destroy();
-}
-?>
 
 <!DOCTYPE html>
 <html>
@@ -38,10 +32,10 @@ if(isset($_POST['submitCredentials']))
     //echo $submitted_id . "<br />";
     //echo $submitted_pass . "<br />";
 
+
+
     if (mysqli_num_rows($login_result) > 0)
     {
-        session_start();
-        $_SESSION['user'] = $submitted_id;
         header("Location: menu.php");
         exit();
     }
