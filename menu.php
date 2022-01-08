@@ -30,6 +30,21 @@ if(!isset($_SESSION['user']))
                 <h1>Payroll System</h1>
             </div>
 
+            <div class="search-add">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <input type="text" name="searchKey" />
+                    <input type="submit" value="Search Employee" name="enterSearch" />
+                </form>
+            </div>
+            <?php
+            include "display.php";
+            ?>
+            <div class="displayButton">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <input type="submit" value="Display All" name="displayAll" />
+                </form>
+            </div>
+
 
         </div>
     </body>
