@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2022 at 04:33 PM
+-- Generation Time: Jan 08, 2022 at 02:50 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -32,17 +32,18 @@ CREATE TABLE `tblemployees` (
   `fldlastname` text NOT NULL,
   `fldfirstname` text NOT NULL,
   `fldposition` text NOT NULL,
-  `fldpassword` text NOT NULL
+  `fldpassword` text NOT NULL,
+  `fldemployeetype` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tblemployees`
 --
 
-INSERT INTO `tblemployees` (`fldindex`, `fldlastname`, `fldfirstname`, `fldposition`, `fldpassword`) VALUES
-(123456, 'Bazinga', 'Joey', 'Employee', 'password'),
-(420690, 'Maneetapho', 'Garnt', 'Employee', 'password'),
-(930000, 'Colquhoun', 'Connor', 'Employee', 'password');
+INSERT INTO `tblemployees` (`fldindex`, `fldlastname`, `fldfirstname`, `fldposition`, `fldpassword`, `fldemployeetype`) VALUES
+(123456, 'Bazinga', 'Joey', 'Private', 'password', 'part'),
+(420690, 'Maneetapho', 'Garnt', 'Governemnt', 'password', 'full'),
+(930000, 'Colquhoun', 'Connor', 'Private', 'password', 'part');
 
 --
 -- Indexes for dumped tables
