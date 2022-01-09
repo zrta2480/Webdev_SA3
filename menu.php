@@ -34,6 +34,7 @@ if(!isset($_SESSION['user']))
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                     <input type="text" name="searchKey" />
                     <input type="submit" value="Search Employee" name="enterSearch" />
+                    <input type="submit" value="Add Employee" name="addEmployee" onclick="action='addemployee.php'; return true;" />
                 </form>
             </div>
             <?php

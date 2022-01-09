@@ -12,7 +12,7 @@ unset($_SESSION['user']);
         <div class="login">
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 Employee Number: <input type="text" name="idNumber" />
-                Password: <input type="text" name="userPassword" />
+                Password: <input type="password" name="userPassword" />
                 <input type="submit" value="Enter" name="submitCredentials" />
             </form>
         </div>
