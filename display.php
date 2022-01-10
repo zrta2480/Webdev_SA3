@@ -30,7 +30,7 @@ if(!isset($_POST['enterSearch']) || isset($_POST['displayAll']))
             echo "<td>". $row['fldemployeetype'] ."</td>";
             echo "<td><a href='editemployee.php?employeeID=". $row['fldindex'] ."'>Edit</a> </td>"; //edit link
             echo "<td><a href='deleteemployee.php?employeeID=". $row['fldindex'] ."'>Delete</a> </td>"; //delete link
-            echo "<td> </td>"; //payroll link
+            echo "<td><a href='payroll.php?employeeID=". $row['fldindex'] ."'>Payroll</a> </td>"; //payroll link
             echo "</tr>";
         }
     }
@@ -75,7 +75,7 @@ elseif(isset($_POST['enterSearch']))
             echo "<td>". $search_row['fldemployeetype'] ."</td>";
             echo "<td><a href='editemployee.php?employeeID=". $search_row['fldindex'] ."'>Edit</a>  </td>"; //edit link
             echo "<td><a href='deleteemployee.php?employeeID=". $search_row['fldindex'] ."'>Delete</a> </td>"; //delete link
-            echo "<td> </td>"; //payroll link
+            echo "<td><a href='payroll.php?employeeID=". $row['fldindex'] ."'>Payroll</a> </td>"; //payroll link
             echo "</tr>";
         }
     }
