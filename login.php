@@ -1,3 +1,7 @@
+<?php
+session_start();
+unset($_SESSION['user']);
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,7 +12,7 @@
         <div class="login">
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 Employee Number: <input type="text" name="idNumber" />
-                Password: <input type="text" name="userPassword" />
+                Password: <input type="password" name="userPassword" />
                 <input type="submit" value="Enter" name="submitCredentials" />
             </form>
         </div>
@@ -30,6 +34,7 @@ if(isset($_POST['submitCredentials']))
     
     //echo $submitted_id . "<br />";
     //echo $submitted_pass . "<br />";
+    $_SESSION['user'] = $submitted_id;
 
     if (mysqli_num_rows($login_result) > 0)
     {
@@ -37,6 +42,7 @@ if(isset($_POST['submitCredentials']))
         exit();
     }
     else {
+        session_destroy();
         header("Location: login.php");
         exit();
     }
@@ -44,4 +50,5 @@ if(isset($_POST['submitCredentials']))
     
 }
 
+mysqli_close($con);
 ?>
