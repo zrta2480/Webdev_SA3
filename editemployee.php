@@ -32,6 +32,8 @@ function edit_form($con, $submitted_ID)
         }
     }
 
+    
+
     echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='post'>";
     echo "Employee ID: <input type='text' value='" . $selected_employee . "' name='employee_id' />";
     echo "<br />";
@@ -44,25 +46,67 @@ function edit_form($con, $submitted_ID)
     echo "<br />";
     echo "Job Position: ";
     echo "<br />";
-    echo "Staff:     <input type='radio' name='employeePosition' value='Staff' />";
+    //echo "Staff:     <input type='radio' name='employeePosition' value='Staff' />";
+    if($old_position == "Staff") {
+        echo "Staff:     <input type='radio' name='employeePosition' value='Staff' checked/>";
+    } 
+    else {
+        echo "Staff:     <input type='radio' name='employeePosition' value='Staff' />";
+    }
     echo "<br />";
-    echo "Manager:     <input type='radio' name='employeePosition' value='Manager' />";
+    //echo "Manager:     <input type='radio' name='employeePosition' value='Manager' />";
+    if($old_position == "Manager") {
+        echo "Manager:     <input type='radio' name='employeePosition' value='Manager' checked/>";
+    }
+    else {
+        echo "Manager:     <input type='radio' name='employeePosition' value='Manager' />";
+    }
     echo "<br />";
-    echo "Executive:     <input type='radio' name='employeePosition' value='Executive' />";
+    //echo "Executive:     <input type='radio' name='employeePosition' value='Executive' />";
+    if($old_position == "Executive") {
+        echo "Executive:     <input type='radio' name='employeePosition' value='Executive' checked/>";
+    }
+    else {
+        echo "Executive:     <input type='radio' name='employeePosition' value='Executive' />";
+    }
     echo "<br />";
     echo "<br />";
     echo "Employement type: ";
     echo "<br />";
-    echo "Part-Time: <input type='radio' name='employeeType' value='Part' />";
+    //echo "Part-Time: <input type='radio' name='employeeType' value='Part' />";
+    if($old_type == "Part") {
+        echo "Part-Time: <input type='radio' name='employeeType' value='Part' checked/>";
+    }
+    else {
+        echo "Part-Time: <input type='radio' name='employeeType' value='Part' />";
+    }
     echo "<br />";
-    echo "Full-Time: <input type='radio' name='employeeType' value='Full' />";
+    //echo "Full-Time: <input type='radio' name='employeeType' value='Full' />";
+    if($old_type == "Full") {
+        echo "Full-Time: <input type='radio' name='employeeType' value='Full' checked/>";
+    }
+    else {
+        echo "Full-Time: <input type='radio' name='employeeType' value='Full' />";
+    }
     echo "<br />";
     echo "<br />";
     echo "Payment Period: ";
     echo "<br />";
-    echo "Monthly: <input type='radio' name='employeePeriod' value='Monthly' />";
+    //echo "Monthly: <input type='radio' name='employeePeriod' value='Monthly' />";
+    if($old_period == "Monthly") {
+        echo "Monthly: <input type='radio' name='employeePeriod' value='Monthly' checked/>";
+    }
+    else {
+        echo "Monthly: <input type='radio' name='employeePeriod' value='Monthly' />";
+    }
     echo "<br />";
-    echo "Semi-Monthly: <input type='radio' name='employeePeriod' value='Semi-Monthly' />";
+    //echo "Semi-Monthly: <input type='radio' name='employeePeriod' value='Semi-Monthly' />";
+    if($old_period == "Semi-Monthly") {
+        echo "Semi-Monthly: <input type='radio' name='employeePeriod' value='Semi-Monthly' checked/>";
+    }
+    else {
+        echo "Semi-Monthly: <input type='radio' name='employeePeriod' value='Semi-Monthly' />";
+    }
     echo "<br />";
     echo "<input type='hidden' name='selectedEmployee' value='" . $selected_employee . "' />";
     echo "<input type='submit' name='submit_update_employee' value='Update' />";
@@ -93,25 +137,67 @@ function retry_edit_form()
     echo "<br />";
     echo "Job Position: ";
     echo "<br />";
-    echo "Staff:     <input type='radio' name='employeePosition' value='Staff' />";
+    //echo "Staff:     <input type='radio' name='employeePosition' value='Staff' />";
+    if($new_position == "Staff") {
+        echo "Staff:     <input type='radio' name='employeePosition' value='Staff' checked/>";
+    } 
+    else {
+        echo "Staff:     <input type='radio' name='employeePosition' value='Staff' />";
+    }
     echo "<br />";
-    echo "Manager:     <input type='radio' name='employeePosition' value='Manager' />";
+    //echo "Manager:     <input type='radio' name='employeePosition' value='Manager' />";
+    if($new_position == "Manager") {
+        echo "Manager:     <input type='radio' name='employeePosition' value='Manager' checked/>";
+    }
+    else {
+        echo "Manager:     <input type='radio' name='employeePosition' value='Manager' />";
+    }
     echo "<br />";
-    echo "Executive:     <input type='radio' name='employeePosition' value='Executive' />";
+    //echo "Executive:     <input type='radio' name='employeePosition' value='Executive' />";
+    if($new_position == "Executive") {
+        echo "Executive:     <input type='radio' name='employeePosition' value='Executive' checked/>";
+    }
+    else {
+        echo "Executive:     <input type='radio' name='employeePosition' value='Executive' />";
+    }
     echo "<br />";
     echo "<br />";
     echo "Employement type: ";
     echo "<br />";
-    echo "Part-Time: <input type='radio' name='employeeType' value='Part' />";
+    //echo "Part-Time: <input type='radio' name='employeeType' value='Part' />";
+    if($new_type == "Part") {
+        echo "Part-Time: <input type='radio' name='employeeType' value='Part' checked/>";
+    }
+    else {
+        echo "Part-Time: <input type='radio' name='employeeType' value='Part' />";
+    }
     echo "<br />";
-    echo "Full-Time: <input type='radio' name='employeeType' value='Full' />";
+    //echo "Full-Time: <input type='radio' name='employeeType' value='Full' />";
+    if($new_type == "Full") {
+        echo "Full-Time: <input type='radio' name='employeeType' value='Full' checked/>";
+    }
+    else {
+        echo "Full-Time: <input type='radio' name='employeeType' value='Full' />";
+    }
     echo "<br />";
     echo "<br />";
     echo "Payment Period: ";
     echo "<br />";
-    echo "Monthly: <input type='radio' name='employeePeriod' value='Monthly' />";
+    //echo "Monthly: <input type='radio' name='employeePeriod' value='Monthly' />";
+    if($new_period == "Monthly") {
+        echo "Monthly: <input type='radio' name='employeePeriod' value='Monthly' checked/>";
+    }
+    else {
+        echo "Monthly: <input type='radio' name='employeePeriod' value='Monthly' />";
+    }
     echo "<br />";
-    echo "Semi-Monthly: <input type='radio' name='employeePeriod' value='Semi-Monthly' />";
+    //echo "Semi-Monthly: <input type='radio' name='employeePeriod' value='Semi-Monthly' />";
+    if($new_period == "Semi-Monthly") {
+        echo "Semi-Monthly: <input type='radio' name='employeePeriod' value='Semi-Monthly' checked/>";
+    }
+    else {
+        echo "Semi-Monthly: <input type='radio' name='employeePeriod' value='Semi-Monthly' />";
+    }
     echo "<br />";
     echo "<input type='hidden' name='selectedEmployee' value='" . $indentifier . "' />";
     echo "<input type='submit' name='submit_update_employee' value='Update' />";
