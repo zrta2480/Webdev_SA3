@@ -35,7 +35,6 @@ if(!isset($_SESSION['user']))
                     $selected_user = $_GET['employeeID'];
                     $user_last_name = "[user's last name]";
                     $basic_pay = "0.00";
-                    $non_tax = "0.00";
                     $n_diff ="0.00";
                     $o_pay = "0.00";
                 
@@ -47,14 +46,21 @@ if(!isset($_SESSION['user']))
                     {
                         if($selected_user == $row['fldindex'])
                         {
+                            $pay_period = 1;    //1 = monthly;  0.5 = semi-monthly
+                            $type = 1;  //1 = full time;    0.5 = part-time
+                            if ($row['fldemployeetype'] == 'Part')
+                                $type = 0.5;
+
+                            if ($row['fldperiod'] == 'Semi-Monthly')
+                                $pay_period = 0.5;
+
                             $verify_ID = true;
                             $user_first_name = $row['fldfirstname'];
                             $user_last_name = $row['fldlastname'];
-                            $basic_pay = $row['fldBasicPay'];
+                            $basic_pay = ($row['fldBasicPay'] * $pay_period) * $type;
 
                             $hourly_rate = ($basic_pay * 12 / 52) / 55; //monthly to hourly = (base pay * 12 / 52 weeks) / 55 hours per week (which is an 8 hour work week)
 
-                            $non_tax = $row['fldNonTaxAllow'];
                             $n_diff = ($row['fldNightDiff'] * $hourly_rate) * 125 / 100; //125% rate for night differential
                             $o_pay = ($row['fldOvertime'] * $hourly_rate) * 130 / 100;   //130% rate for ot pay
 
