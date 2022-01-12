@@ -33,7 +33,7 @@ if(!isset($_POST['enterSearch']) || isset($_POST['displayAll']))
             echo "<td>". $row['fldposition'] ."</td>";
             echo "<td>". $row['fldemployeetype'] ."</td>";
             echo "<td>". $row['fldperiod'] ."</td>";
-            echo "<td>". $row['fldBasicPay'] ."</td>";
+            echo "<td>". '₱' .$row['fldBasicPay'] ."</td>";
             echo "<td>". $row['fldNightDiff'] ."</td>";
             echo "<td>". $row['fldOvertime'] ."</td>";
             echo "<td><a href='editemployee.php?employeeID=". $row['fldindex'] ."'>Edit</a> </td>"; //edit link
@@ -86,7 +86,7 @@ elseif(isset($_POST['enterSearch']))
             echo "<td>". $search_row['fldposition'] ."</td>";
             echo "<td>". $search_row['fldemployeetype'] ."</td>";
             echo "<td>". $search_row['fldperiod'] ."</td>";
-            echo "<td>". $search_row['fldBasicPay'] ."</td>";
+            echo "<td>". '₱' .$search_row['fldBasicPay'] ."</td>";
             echo "<td>". $search_row['fldNightDiff'] ."</td>";
             echo "<td>". $search_row['fldOvertime'] ."</td>";
             echo "<td><a href='editemployee.php?employeeID=". $search_row['fldindex'] ."'>Edit</a>  </td>"; //edit link
