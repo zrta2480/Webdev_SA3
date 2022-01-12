@@ -62,6 +62,12 @@ if(!isset($_SESSION['user']))
                     <br />
                     Semi-Monthly: <input type="radio" name="employeePeriod" value="Semi-Monthly" />
                     <br />
+                    Basic Pay: <input type="text" name="employeeBasicPay" />
+                    <br />
+                    Night Differential:   <input type="text" name="employeeNightDiff" />
+                    <br />
+                    Overtime Pay:  <input type="text" name="employeeOvertime" />
+                    <br />
                     <br />
                     <input type="submit" name="submit_new_employee" value="Save" />
                 </form>
@@ -80,13 +86,16 @@ if(!isset($_SESSION['user']))
                 $employee_position = $_POST['employeePosition'];
                 $employee_type = $_POST['employeeType'];
                 $employee_period = $_POST['employeePeriod'];
+                $employee_basic_pay = $_POST['employeeBasicPay'];
+                $employee_night_diff = $_POST['employeeNightDiff'];
+                $employee_overtime = $_POST['employeeOvertime'];
 
                 //echo $employee_password . "<br />";
                 //echo $employee_position . "<br />";
                 //echo $employee_type . "<br />";
                 //echo $employee_period . "<br />";
 
-                if(empty($employee_ID) || empty($emplyee_last_name) || empty($employee_first_name) || empty($employee_position) || empty($employee_type) || empty($employee_period))
+                if(empty($employee_ID) || empty($emplyee_last_name) || empty($employee_first_name) || empty($employee_position) || empty($employee_type) || empty($employee_period) || empty($employee_basic_pay) || empty($employee_night_diff) || empty($employee_overtime))
                 {
                     echo "Please fill in all the required information!!! <br />";
 
@@ -109,8 +118,8 @@ if(!isset($_SESSION['user']))
                         echo "<br />";
                     }
                     else {
-                        $enter_sql = "INSERT INTO tblemployees (fldindex, fldlastname, fldfirstname, fldposition, fldemployeetype, fldperiod)
-                        VALUES('$employee_ID', '$emplyee_last_name', '$employee_first_name', '$employee_position', '$employee_type', '$employee_period')";
+                        $enter_sql = "INSERT INTO tblemployees (fldindex, fldlastname, fldfirstname, fldposition, fldemployeetype, fldperiod, fldBasicPay, fldNightDiff, fldOvertime)
+                        VALUES('$employee_ID', '$emplyee_last_name', '$employee_first_name', '$employee_position', '$employee_type', '$employee_period', '$employee_basic_pay', '$employee_night_diff', '$employee_overtime')";
                         $check = mysqli_query($con, $enter_sql);
                         if(!$check)
                         {
