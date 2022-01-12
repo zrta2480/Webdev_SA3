@@ -88,8 +88,11 @@ if(!isset($_SESSION['user']))
 
                             else
                                 $pagibig = $gross_pay * 1 / 100;
+
+                            
+                            $total_deductions = $sss + $philhealth + $pagibig;
+                            $net_pay = $gross_pay - $total_deductions;
                         }
-                   
                     }
             }
             ?>
@@ -125,10 +128,6 @@ if(!isset($_SESSION['user']))
                         <td><?php echo '₱' . number_format($gross_pay, 2); //tax and non tax allowance not accounted for, going to be removed soon?></td>
                     </tr>
                     <tr>
-                        <td>Withholding Tax: </td>
-                        <td> </td>
-                    </tr>
-                    <tr>
                         <td>SSS Contribution: </td>
                         <td><?php echo '₱' . number_format($sss, 2); ?></td>
                     </tr>
@@ -142,11 +141,11 @@ if(!isset($_SESSION['user']))
                     </tr>
                     <tr>
                         <td>Total Deductions: </td>
-                        <td> </td>
+                        <td><?php echo '₱' . number_format($total_deductions, 2); ?></td>
                     </tr>
                     <tr>
                         <td>Net Pay: </td>
-                        <td> </td>
+                        <td><?php echo '₱' . number_format($net_pay, 2); ?></td>
                     </tr>
                 </table>
             </div>
