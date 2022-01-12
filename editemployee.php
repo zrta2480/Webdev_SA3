@@ -116,9 +116,9 @@ function edit_form($con, $submitted_ID)
     echo "<br />";
     echo "Basic Pay: <input type='text' value='" . $old_basic . "' name='employeeBasic' />";
     echo "<br />";
-    echo "Last Name: <input type='text' value='" . $old_night . "' name='employeeNightDiff' />";
+    echo "Night Differential: <input type='text' value='" . $old_night . "' name='employeeNightDiff' />";
     echo "<br />";
-    echo "First Name: <input type='text' value='" . $old_overtime . "' name='employeeOvertime' />";
+    echo "Overtime Hours: <input type='text' value='" . $old_overtime . "' name='employeeOvertime' />";
     echo "<br />";
     echo "<input type='hidden' name='selectedEmployee' value='" . $selected_employee . "' />";
     echo "<input type='submit' name='submit_update_employee' value='Update' />";
@@ -216,9 +216,9 @@ function retry_edit_form()
     echo "<br />";
     echo "Basic Pay: <input type='text' value='" . $new_basic . "' name='employeeBasic' />";
     echo "<br />";
-    echo "Last Name: <input type='text' value='" . $new_night . "' name='employeeNightDiff' />";
+    echo "Night Differential: <input type='text' value='" . $new_night . "' name='employeeNightDiff' />";
     echo "<br />";
-    echo "First Name: <input type='text' value='" . $new_overtime . "' name='employeeOvertime' />";
+    echo "Overtime Hours: <input type='text' value='" . $new_overtime . "' name='employeeOvertime' />";
     echo "<br />";
     echo "<input type='hidden' name='selectedEmployee' value='" . $indentifier . "' />";
     echo "<input type='submit' name='submit_update_employee' value='Update' />";
