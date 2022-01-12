@@ -13,16 +13,27 @@ if(!isset($_SESSION['user']))
     </head>
 
     <body>
-        <div class="side-bar">
-            <table>
-                <tr>
-                    <td><a href="menu.php">Menu</a></td>
-                </tr>
-                <tr>
-                    <td><a href="login.php">Logout</a></td>
-                </tr>
-            </table>
-        </div>
+        <header class="header" role="banner">
+          <h1 class="logo">
+            <a href="#">Payroll <span>Calculator</span></a>
+          </h1>
+          <div class="nav-wrap">
+            <nav class="main-nav" role="navigation">
+              <ul class="unstyled list-hover-slide">
+                <li><a href="menu.php">Menu</a></li>
+                <li><a href="login.php">Logout</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </nav>
+            <ul class="social-links list-inline unstyled list-hover-slide">
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Google+</a></li>
+              <li><a href="https://github.com/zrta2480/Webdev_SA3">GitHub</a></li>
+              <li><a href="#">CodePen</a></li>
+            </ul>
+          </div>
+        </header>
 
         <div class="main-body">
             <div class="main-header">

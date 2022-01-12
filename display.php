@@ -63,7 +63,8 @@ elseif(isset($_POST['enterSearch']))
 
     $search_result = mysqli_query($con, $search_sql);
 
-    echo "<table border='1'>";
+    echo "<table>";
+    echo "<thead>";
     echo "<tr>";
     echo "<th>Employee ID</th>";
     echo "<th>Last Name</th>";
@@ -78,12 +79,14 @@ elseif(isset($_POST['enterSearch']))
     echo "<th> </th>"; //Delete
     echo "<th> </th>"; //Payroll
     echo "</tr>";
+    echo "</thead>";
 
 
     if(mysqli_num_rows($search_result) > 0)
     {
         while($search_row = mysqli_fetch_assoc($search_result))
         {
+            echo "<tbody>";
             echo "<tr>";
             echo "<td>". $search_row['fldindex'] ."</td>";
             echo "<td>". $search_row['fldlastname'] ."</td>";
@@ -98,12 +101,14 @@ elseif(isset($_POST['enterSearch']))
             echo "<td><a href='deleteemployee.php?employeeID=". $search_row['fldindex'] ."'>Delete</a> </td>"; //delete link
             echo "<td><a href='payroll.php?employeeID=". $search_row['fldindex'] ."'>Payroll</a> </td>"; //payroll link
             echo "</tr>";
+            echo "</tbody>";
         }
     }
     else {
         echo "<tr>";
         echo "<td colspan = '12'><center>No Entries found!</center></td>";
         echo "</tr>";
+        echo "<tbody>";
     }
 
     echo "</table>";
