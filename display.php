@@ -14,8 +14,6 @@ if(!isset($_POST['enterSearch']) || isset($_POST['displayAll']))
     echo "<th>Job Position</th>";
     echo "<th>Pay Period</th>";
     echo "<th>Basic Pay</th>";
-    echo "<th>Taxable Allowance</th>";
-    echo "<th>Non-Taxable Allowance</th>";
     echo "<th>Night Differential</th>";
     echo "<th>Overtime Hours</th>";
     echo "<th> </th>"; //Edit
@@ -34,8 +32,6 @@ if(!isset($_POST['enterSearch']) || isset($_POST['displayAll']))
             echo "<td>". $row['fldposition'] ."</td>";
             echo "<td>". $row['fldperiod'] ."</td>";
             echo "<td>". $row['fldBasicPay'] ."</td>";
-            echo "<td>". $row['fldTaxAllow'] ."</td>";
-            echo "<td>". $row['fldNonTaxAllow'] ."</td>";
             echo "<td>". $row['fldNightDiff'] ."</td>";
             echo "<td>". $row['fldOvertime'] ."</td>";
             echo "<td><a href='editemployee.php?employeeID=". $row['fldindex'] ."'>Edit</a> </td>"; //edit link
@@ -68,8 +64,6 @@ elseif(isset($_POST['enterSearch']))
     echo "<th>Job Position</th>";
     echo "<th>Pay Period</th>";
     echo "<th>Basic Pay</th>";
-    echo "<th>Taxable Allowance</th>";
-    echo "<th>Non-Taxable Allowance</th>";
     echo "<th>Night Differential</th>";
     echo "<th>Overtime Hours</th>";
     echo "<th> </th>"; //Edit
@@ -89,8 +83,6 @@ elseif(isset($_POST['enterSearch']))
             echo "<td>". $search_row['fldposition'] ."</td>";
             echo "<td>". $search_row['fldperiod'] ."</td>";
             echo "<td>". $search_row['fldBasicPay'] ."</td>";
-            echo "<td>". $search_row['fldTaxAllow'] ."</td>";
-            echo "<td>". $search_row['fldNonTaxAllow'] ."</td>";
             echo "<td>". $search_row['fldNightDiff'] ."</td>";
             echo "<td>". $search_row['fldOvertime'] ."</td>";
             echo "<td><a href='editemployee.php?employeeID=". $search_row['fldindex'] ."'>Edit</a>  </td>"; //edit link
