@@ -97,7 +97,7 @@ elseif(isset($_POST['enterSearch']))
     }
     else {
         echo "<tr>";
-        echo "<td>No Entries</td>";
+        echo "<td colspan = '12'><center>No Entries found!</center></td>";
         echo "</tr>";
     }
 
