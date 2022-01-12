@@ -9,35 +9,26 @@ unset($_SESSION['user']);
     </head>
 
     <body>
-
-    <div class="container">
-        <div class="login-header">
-            <h1>Login</h1>
-        </div>
-
-        <div class="login">
+        <div class="login-page">
+          <div class="form">
+            <h2>Admin Payroll Login</h2>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                Admin Name: <input type="text" name="idNumber" />
-                <br />
-                <br />
-                Password: <input type="password" name="userPassword" />
-                <br />
-                <input type="submit" value="Enter" name="submitCredentials" />
+              <input type="text" placeholder="username" name="idNumber" required />
+              <input type="password" placeholder="password" name="userPassword" required/>
+              <input type="submit" value="Enter" name="submitCredentials" class="loginButton"/>
+                <?php if (isset($_SESSION['message']))
+                {
+                    echo $_SESSION['message'];
+                    unset($_SESSION['message']);
+                } ?>
             </form>
+          </div>
         </div>
-
-    </div>
     </body>
 </html>
 
 <?php
     include "dbs-connect.php";
-
-    if (isset($_SESSION['message']))
-    {
-        echo $_SESSION['message'];
-        unset($_SESSION['message']);
-    }
 
     if(isset($_POST['submitCredentials']))
     {
