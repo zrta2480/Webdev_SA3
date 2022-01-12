@@ -62,14 +62,32 @@ if(!isset($_SESSION['user']))
 
                             $gross_pay = $basic_pay + $n_diff + $o_pay;
 
-                            if ($gross_pay > 24750)
+                            //sss
+                            if ($gross_pay >= 24750)
                                 $sss = 1125;    //maximum sss contribution
 
-                            else if ($gross_pay < 1000)
+                            else if ($gross_pay <= 1000)
                                 $sss = 135;     //minimum sss contribution
 
                             else
                                 $sss = 1125 * (($gross_pay / 24750) * 100) / 100;  //computation of the percentage of SSS contribution based on gross pay
+
+                            //philhealth
+                            if ($gross_pay >= 80000)
+                                $philhealth= 1600;    //maximum philhealth contribution
+
+                            else if ($gross_pay <= 10000)
+                                $philhealth = 200;     //minimum philhealth contribution
+
+                            else
+                                $philhealth = 1600 * (($gross_pay / 80000) * 100) / 100;
+
+                            //PAGIBIG
+                            if ($gross_pay >= 7499)
+                                $pagibig = 150;    //maximum pagibig contribution
+
+                            else
+                                $pagibig = $gross_pay * 1 / 100;
                         }
                    
                     }
@@ -116,11 +134,11 @@ if(!isset($_SESSION['user']))
                     </tr>
                     <tr>
                         <td>PhilHealth Contribution: </td>
-                        <td> </td>
+                        <td><?php echo '₱' . number_format($philhealth, 2); ?></td>
                     </tr>
                     <tr>
                         <td>PAG-IBIG Contribution: </td>
-                        <td> </td>
+                        <td><?php echo '₱' . number_format($pagibig, 2); ?></td>
                     </tr>
                     <tr>
                         <td>Total Deductions: </td>
