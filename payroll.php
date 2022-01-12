@@ -49,12 +49,18 @@ if(!isset($_SESSION['user']))
                         if($selected_user == $row['fldindex'])
                         {
                             $verify_ID = true;
+                            $user_first_name = $row['fldfirstname'];
                             $user_last_name = $row['fldlastname'];
                             $basic_pay = $row['fldBasicPay'];
+
+                            $hourly_rate = ($basic_pay * 12 / 52) / 55; //monthly to hourly = (base pay * 12 / 52 weeks) / 55 hours per week (which is an 8 hour work week)
+
                             $tax_allowance = $row['fldTaxAllow'];
                             $non_tax = $row['fldNonTaxAllow'];
-                            $n_diff = $row['fldNightDiff']; 
-                            $o_pay = $row['fldOvertime'];
+                            $n_diff = ($row['fldNightDiff'] * $hourly_rate) * 125 / 100; //125% rate for night differential
+                            $o_pay = ($row['fldOvertime'] * $hourly_rate) * 130 / 100;   //130% rate for ot pay
+
+                            $gross_pay = $basic_pay + $n_diff + $o_pay;
                         }
                    
                     }
@@ -65,31 +71,31 @@ if(!isset($_SESSION['user']))
                 <table>
                     <tr>
                         <th> </th>
-                        <th>Payroll for <?php echo $user_last_name ?></th> 
+                        <th>Payroll for <?php echo $user_first_name. " " .$user_last_name; ?></th> 
                     </tr>
                     <tr>
                         <td>Basic pay: </td>
-                        <td><?php echo $basic_pay ?></td> 
+                        <td><?php echo '₱' . number_format($basic_pay, 2); ?></td> 
                     </tr>
                     <tr>
                         <td>Taxable Allowance: </td>
-                        <td><?php echo $tax_allowance ?></td> 
+                        <td><?php echo '₱' . number_format($tax_allowance, 2); ?></td> 
                     </tr>
                     <tr>
                         <td>Non-Taxable Allowance: </td>
-                        <td><?php echo $non_tax ?></td>
+                        <td><?php echo '₱' . number_format($non_tax, 2); ?></td>
                     </tr>
                     <tr>
                         <td>Night Differential: </td>
-                        <td><?php echo $n_diff ?> </td>
+                        <td><?php echo '₱' . number_format($n_diff, 2); ?></td>
                     </tr>
                     <tr>
                         <td>Overtime Pay: </td>
-                        <td><?php echo $o_pay ?> </td>
+                        <td><?php echo '₱' . number_format($o_pay, 2); ?></td>
                     </tr>
                     <tr>
                         <td>Gross Pay: </td>
-                        <td> </td>
+                        <td><?php echo '₱' . number_format($gross_pay, 2); //tax and non tax allowance not accounted for, going to be removed soon?></td>
                     </tr>
                     <tr>
                         <td>Withholding Tax: </td>
