@@ -61,6 +61,15 @@ if(!isset($_SESSION['user']))
                             $o_pay = ($row['fldOvertime'] * $hourly_rate) * 130 / 100;   //130% rate for ot pay
 
                             $gross_pay = $basic_pay + $n_diff + $o_pay;
+
+                            if ($gross_pay > 24750)
+                                $sss = 1125;    //maximum sss contribution
+
+                            else if ($gross_pay < 1000)
+                                $sss = 135;     //minimum sss contribution
+
+                            else
+                                $sss = 1125 * (($gross_pay / 24750) * 100) / 100;  //computation of the percentage of SSS contribution based on gross pay
                         }
                    
                     }
@@ -103,7 +112,7 @@ if(!isset($_SESSION['user']))
                     </tr>
                     <tr>
                         <td>SSS Contribution: </td>
-                        <td> </td>
+                        <td><?php echo '₱' . number_format($sss, 2); ?></td>
                     </tr>
                     <tr>
                         <td>PhilHealth Contribution: </td>
