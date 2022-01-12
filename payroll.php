@@ -114,10 +114,12 @@ if(!isset($_SESSION['user']))
 
             <div class="payroll-table">
                 <table>
+                    <thead>
                     <tr>
                         <th> </th>
                         <th>Payroll for <?php echo $user_first_name. " " .$user_last_name; ?></th> 
                     </tr>
+                    </thead>
                     <tr>
                         <td>Basic pay: </td>
                         <td><?php echo '₱' . number_format($basic_pay, 2); ?></td> 
@@ -151,8 +153,8 @@ if(!isset($_SESSION['user']))
                         <td><?php echo '₱' . number_format($total_deductions, 2); ?></td>
                     </tr>
                     <tr>
-                        <td>Net Pay: </td>
-                        <td><?php echo '₱' . number_format($net_pay, 2); ?></td>
+                        <td id = "netpay">Net Pay:</td>
+                        <td id = "netpay"><?php echo '₱' . number_format($net_pay, 2); ?></td>
                     </tr>
                 </table>
             </div>

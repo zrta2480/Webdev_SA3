@@ -270,3 +270,6 @@ input[type=submit]:hover {
     background-color: darkred;
 }
 
+#netpay {
+    font-weight:  bold;
+}
