@@ -287,7 +287,7 @@ function retry_edit_form()
                         }
                     }
 
-                    if(empty($new_ID) || empty($new_last_name) || empty($new_first_name) || empty($new_job_position) || empty($new_job_position) || empty($new_employement_type) || empty($new_payment_period) || empty($new_basic_pay) || empty($new_night_diff) || empty($new_overtime_hours))
+                    if(empty($new_ID) || empty($new_last_name) || empty($new_first_name) || empty($new_job_position) || empty($new_job_position) || empty($new_employement_type) || empty($new_payment_period) || !is_numeric($new_basic_pay) || !is_numeric($new_night_diff) || !is_numeric($new_overtime_hours))
                     {
                         retry_edit_form();
                         echo "<h3>Blank data are not allowed!!!</h3>";

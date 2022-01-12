@@ -95,10 +95,10 @@ if(!isset($_SESSION['user']))
                 //echo $employee_type . "<br />";
                 //echo $employee_period . "<br />";
 
-                if(empty($employee_ID) || empty($emplyee_last_name) || empty($employee_first_name) || empty($employee_position) || empty($employee_type) || empty($employee_period) || empty($employee_basic_pay) || empty($employee_night_diff) || empty($employee_overtime))
+                if(empty($employee_ID) || empty($emplyee_last_name) || empty($employee_first_name) || empty($employee_position) || empty($employee_type) || empty($employee_period) || !is_numeric($employee_basic_pay) || !is_numeric($employee_night_diff) || !is_numeric($employee_overtime))
                 {
                     echo "Please fill in all the required information!!! <br />";
-
+                    echo $employee_basic_pay;
                 }
                 else {
                     $sql = "SELECT * FROM tblemployees";
