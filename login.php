@@ -5,17 +5,28 @@ unset($_SESSION['user']);
 <!DOCTYPE html>
 <html>
     <head>
-
+        <link rel="stylesheet" href="sa3-stylesheet.css">
     </head>
 
     <body>
+
+    <div class="container">
+        <div class="login-header">
+            <h1>Login</h1>
+        </div>
+
         <div class="login">
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 Admin Name: <input type="text" name="idNumber" />
+                <br />
+                <br />
                 Password: <input type="password" name="userPassword" />
+                <br />
                 <input type="submit" value="Enter" name="submitCredentials" />
             </form>
         </div>
+
+    </div>
     </body>
 </html>
 
