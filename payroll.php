@@ -37,18 +37,54 @@ if(!isset($_SESSION['user']))
                 <table>
                     <tr>
                         <th> </th>
-                        <th>Amount </th>
+                        <th>Payroll for (employee name here)</th> 
                     </tr>
                     <tr>
-                        <td>Basic pay</td>
-                        <td> </td> 
+                        <td>Basic pay: </td>
+                        <td></td> 
                     </tr>
                     <tr>
-                        <td>Gross Pay</td>
+                        <td>Taxable Allowance: </td>
+                        <td></td> 
+                    </tr>
+                    <tr>
+                        <td>Non-Taxable Allowance: </td>
                         <td> </td>
                     </tr>
                     <tr>
-                        <td>Net Pay</td>
+                        <td>Night Differential: </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>Overtime Pay: </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>Gross Pay: </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>Withholding Tax: </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>SSS Contribution: </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>PhilHealth Contribution: </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>PAG-IBIG Contribution: </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>Total Deductions: </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>Net Pay: </td>
                         <td> </td>
                     </tr>
                 </table>
