@@ -2,10 +2,10 @@
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 12-01-2022 a las 07:50:10
--- Versión del servidor: 10.4.17-MariaDB
--- Versión de PHP: 8.0.2
+-- Host: 127.0.0.1
+-- Generation Time: Jan 12, 2022 at 11:35 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `dbpayroll`
+-- Database: `dbpayroll`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tblemployees`
+-- Table structure for table `tblemployees`
 --
 
 CREATE TABLE `tblemployees` (
@@ -32,34 +32,31 @@ CREATE TABLE `tblemployees` (
   `fldlastname` text NOT NULL,
   `fldfirstname` text NOT NULL,
   `fldposition` text NOT NULL,
-  `fldpassword` text NOT NULL,
+  `fldemployeetype` text NOT NULL,
   `fldperiod` text NOT NULL,
   `fldBasicPay` double NOT NULL,
-  `fldTaxAllow` double NOT NULL,
-  `fldNonTaxAllow` double NOT NULL,
   `fldNightDiff` int(11) NOT NULL,
   `fldOvertime` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `tblemployees`
+-- Dumping data for table `tblemployees`
 --
 
-INSERT INTO `tblemployees` (`fldindex`, `fldlastname`, `fldfirstname`, `fldposition`, `fldpassword`, `fldperiod`, `fldBasicPay`, `fldTaxAllow`, `fldNonTaxAllow`, `fldNightDiff`, `fldOvertime`) VALUES
-(9090, 'Broad', 'Chris', 'Manager', 'password', 'Monthly', 22435, 2442.4, 2509.56, 0, 3),
-(123456, 'Bazinga', 'Joey', 'Staff', 'password', 'Monthly', 24432.98, 2605.45, 1959.36, 1, 0),
-(420690, 'Maneetapho', 'Garnt', 'Manager', 'password', 'Monthly', 23409.43, 2349.24, 1897.75, 2, 3),
-(930000, 'Colquhoun', 'Connor', 'Executive', 'password', 'Semi-Monthly', 25242.34, 2535.6, 2547.75, 2, 2);
+INSERT INTO `tblemployees` (`fldindex`, `fldlastname`, `fldfirstname`, `fldposition`, `fldemployeetype`, `fldperiod`, `fldBasicPay`, `fldNightDiff`, `fldOvertime`) VALUES
+(9090, 'Broad', 'Chris', 'Manager', 'Full', 'Monthly', 22435, 0, 3),
+(123456, 'Bazinga', 'Joey', 'Staff', 'Part', 'Monthly', 24432.98, 1, 0),
+(420690, 'Maneetapho', 'Garnt', 'Manager', 'Full', 'Monthly', 23409.43, 2, 3),
+(930000, 'Colquhoun', 'Connor', 'Executive', 'Full', 'Semi-Monthly', 25242.34, 2, 2);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `tblemployees`
+-- Indexes for table `tblemployees`
 --
 ALTER TABLE `tblemployees`
-  ADD PRIMARY KEY (`fldindex`),
   ADD UNIQUE KEY `fldindex` (`fldindex`);
 COMMIT;
 

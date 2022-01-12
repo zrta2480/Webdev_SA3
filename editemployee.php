@@ -10,7 +10,7 @@ function edit_form($con, $submitted_ID)
 {
     $old_last = "[your last name]";
     $old_first = "[your first name]";
-    $old_password = "[your password]";
+    //$old_password = "[your password]";
     $old_position = "[your employee position]";
     $old_type = "[your employee type]";
     $old_period = "[your payment period]";
@@ -25,7 +25,7 @@ function edit_form($con, $submitted_ID)
             $verify_employee = true;
             $old_last = $row['fldlastname'];
             $old_first = $row['fldfirstname'];
-            $old_password = $row['fldpassword'];
+            //$old_password = $row['fldpassword'];
             $old_position = $row['fldposition'];
             $old_type = $row['fldemployeetype'];
             $old_period = $row['fldperiod'];
@@ -40,8 +40,8 @@ function edit_form($con, $submitted_ID)
     echo "Last Name: <input type='text' value='" . $old_last . "' name='employeeLastName' />";
     echo "<br />";
     echo "First Name: <input type='text' value='" . $old_first . "' name='employeeFirstName' />";
-    echo "<br />";
-    echo "Password: <input type='password' value='" . $old_password . "' name='employeePassword' />";
+    //echo "<br />";
+    //echo "Password: <input type='password' value='" . $old_password . "' name='employeePassword' />";
     echo "<br />";
     echo "<br />";
     echo "Job Position: ";
@@ -119,7 +119,7 @@ function retry_edit_form()
     $new_ID = $_POST['employee_id'];
     $new_last = $_POST['employeeLastName'];
     $new_first = $_POST['employeeFirstName'];
-    $new_pass = $_POST['employeePassword'];
+    //$new_pass = $_POST['employeePassword'];
     $new_position = $_POST['employeePosition'];
     $new_type = $_POST['employeeType'];
     $new_period = $_POST['employeePeriod'];
@@ -131,8 +131,8 @@ function retry_edit_form()
     echo "Last Name: <input type='text' value='" . $new_last . "' name='employeeLastName' />";
     echo "<br />";
     echo "First Name: <input type='text' value='" . $new_first . "' name='employeeFirstName' />";
-    echo "<br />";
-    echo "Password: <input type='password' value='" . $new_pass . "' name='employeePassword' />";
+    //echo "<br />";
+    //echo "Password: <input type='password' value='" . $new_pass . "' name='employeePassword' />";
     echo "<br />";
     echo "<br />";
     echo "Job Position: ";
@@ -244,7 +244,7 @@ function retry_edit_form()
                     $new_ID = $_POST['employee_id'];
                     $new_last_name = $_POST['employeeLastName'];
                     $new_first_name = $_POST['employeeFirstName'];
-                    $new_password = $_POST['employeePassword'];
+                    //$new_password = $_POST['employeePassword'];
                     $new_job_position = $_POST['employeePosition'];
                     $new_employement_type = $_POST['employeeType'];
                     $new_payment_period = $_POST['employeePeriod'];
@@ -263,7 +263,7 @@ function retry_edit_form()
                         }
                     }
 
-                    if(empty($new_ID) || empty($new_last_name) || empty($new_first_name) || empty($new_password) || empty($new_job_position) || empty($new_job_position) || empty($new_employement_type) || empty($new_payment_period))
+                    if(empty($new_ID) || empty($new_last_name) || empty($new_first_name) || empty($new_job_position) || empty($new_job_position) || empty($new_employement_type) || empty($new_payment_period))
                     {
                         retry_edit_form();
                         echo "<h3>Blank data are not allowed!!!</h3>";
@@ -276,7 +276,7 @@ function retry_edit_form()
                         echo "<br />";
                     }
                     else {
-                        $update_sql = "UPDATE tblemployees SET fldindex='$new_ID', fldlastname='$new_last_name', fldfirstname='$new_first_name', fldposition='$new_job_position', fldpassword='$new_password', fldemployeetype='$new_employement_type', fldperiod='$new_payment_period' WHERE fldindex='$selected_ID'";
+                        $update_sql = "UPDATE tblemployees SET fldindex='$new_ID', fldlastname='$new_last_name', fldfirstname='$new_first_name', fldposition='$new_job_position', fldemployeetype='$new_employement_type', fldperiod='$new_payment_period' WHERE fldindex='$selected_ID'";
                         if($con->query($update_sql) == TRUE)
                         {
                             retry_edit_form();

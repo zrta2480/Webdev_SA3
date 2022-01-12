@@ -39,8 +39,6 @@ if(!isset($_SESSION['user']))
                     <br />
                     First Name:  <input type="text" name="employeeFirst" />
                     <br />
-                    Password: <input type="password" name="employeePassword" />
-                    <br />
                     <br />
                     Job Position: 
                     <br />
@@ -78,7 +76,7 @@ if(!isset($_SESSION['user']))
                 $employee_ID = $_POST['employeeID'];
                 $emplyee_last_name = $_POST['employeeLast'];
                 $employee_first_name = $_POST['employeeFirst'];
-                $employee_password = $_POST['employeePassword'];
+                //$employee_password = $_POST['employeePassword'];
                 $employee_position = $_POST['employeePosition'];
                 $employee_type = $_POST['employeeType'];
                 $employee_period = $_POST['employeePeriod'];
@@ -111,8 +109,8 @@ if(!isset($_SESSION['user']))
                         echo "<br />";
                     }
                     else {
-                        $enter_sql = "INSERT INTO tblemployees (fldindex, fldlastname, fldfirstname, fldposition, fldpassword, fldemployeetype, fldperiod)
-                        VALUES('$employee_ID', '$emplyee_last_name', '$employee_first_name', '$employee_position', '$employee_password', '$employee_type', '$employee_period')";
+                        $enter_sql = "INSERT INTO tblemployees (fldindex, fldlastname, fldfirstname, fldposition, fldemployeetype, fldperiod)
+                        VALUES('$employee_ID', '$emplyee_last_name', '$employee_first_name', '$employee_position', '$employee_type', '$employee_period')";
                         $check = mysqli_query($con, $enter_sql);
                         if(!$check)
                         {
