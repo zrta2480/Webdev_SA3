@@ -12,6 +12,7 @@ if(!isset($_POST['enterSearch']) || isset($_POST['displayAll']))
     echo "<th>Last Name</th>";
     echo "<th>First Name</th>";
     echo "<th>Job Position</th>";
+    echo "<th>Employee Type</th>";
     echo "<th>Pay Period</th>";
     echo "<th>Basic Pay</th>";
     echo "<th>Night Differential</th>";
@@ -30,6 +31,7 @@ if(!isset($_POST['enterSearch']) || isset($_POST['displayAll']))
             echo "<td>". $row['fldlastname'] ."</td>";
             echo "<td>". $row['fldfirstname'] ."</td>";
             echo "<td>". $row['fldposition'] ."</td>";
+            echo "<td>". $row['fldemployeetype'] ."</td>";
             echo "<td>". $row['fldperiod'] ."</td>";
             echo "<td>". $row['fldBasicPay'] ."</td>";
             echo "<td>". $row['fldNightDiff'] ."</td>";
@@ -52,7 +54,7 @@ elseif(isset($_POST['enterSearch']))
 {
     $search_query = $_POST['searchKey'];
     $search_sql = "SELECT * FROM tblemployees 
-    WHERE (fldindex LIKE '%$search_query%') OR (fldlastname LIKE '%$search_query%') OR (fldfirstname LIKE '%$search_query%') OR (fldposition LIKE '%$search_query%') OR (fldperiod LIKE '%$search_query%') OR (fldBasicPay LIKE '%$search_query%') OR (fldTaxAllow LIKE '%$search_query%') OR (fldNonTaxAllow LIKE '%$search_query%') OR (fldNightDiff LIKE '%$search_query%') OR (fldOvertime LIKE '%$search_query%')";
+    WHERE (fldindex LIKE '%$search_query%') OR (fldlastname LIKE '%$search_query%') OR (fldfirstname LIKE '%$search_query%') OR (fldposition LIKE '%$search_query%') OR (fldemployeetype LIKE '%$search_query%') OR (fldperiod LIKE '%$search_query%') OR (fldBasicPay LIKE '%$search_query%') OR (fldNightDiff LIKE '%$search_query%') OR (fldOvertime LIKE '%$search_query%')";
 
     $search_result = mysqli_query($con, $search_sql);
 
@@ -62,6 +64,7 @@ elseif(isset($_POST['enterSearch']))
     echo "<th>Last Name</th>";
     echo "<th>First Name</th>";
     echo "<th>Job Position</th>";
+    echo "<th>Employee Type</th>";
     echo "<th>Pay Period</th>";
     echo "<th>Basic Pay</th>";
     echo "<th>Night Differential</th>";
@@ -81,6 +84,7 @@ elseif(isset($_POST['enterSearch']))
             echo "<td>". $search_row['fldlastname'] ."</td>";
             echo "<td>". $search_row['fldfirstname'] ."</td>";
             echo "<td>". $search_row['fldposition'] ."</td>";
+            echo "<td>". $search_row['fldemployeetype'] ."</td>";
             echo "<td>". $search_row['fldperiod'] ."</td>";
             echo "<td>". $search_row['fldBasicPay'] ."</td>";
             echo "<td>". $search_row['fldNightDiff'] ."</td>";
