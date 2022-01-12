@@ -32,9 +32,9 @@ if(!isset($_SESSION['user']))
 
             <div class="search-add">
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                    <input type="text" name="searchKey" />
+                    <input type="text" name="searchKey" required/>
                     <input type="submit" value="Search Employee" name="enterSearch" />
-                    <input type="submit" value="Add Employee" name="addEmployee" onclick="action='addemployee.php'; return true;" />
+                    <input type="submit" value="Add Employee" name="addEmployee" onclick="action='addemployee.php'; return true;" formnovalidate/>
                 </form>
             </div>
             <?php
