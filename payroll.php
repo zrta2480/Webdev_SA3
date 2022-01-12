@@ -35,7 +35,6 @@ if(!isset($_SESSION['user']))
                     $selected_user = $_GET['employeeID'];
                     $user_last_name = "[user's last name]";
                     $basic_pay = "0.00";
-                    $tax_allowance = "0.00";
                     $non_tax = "0.00";
                     $n_diff ="0.00";
                     $o_pay = "0.00";
@@ -55,7 +54,6 @@ if(!isset($_SESSION['user']))
 
                             $hourly_rate = ($basic_pay * 12 / 52) / 55; //monthly to hourly = (base pay * 12 / 52 weeks) / 55 hours per week (which is an 8 hour work week)
 
-                            $tax_allowance = $row['fldTaxAllow'];
                             $non_tax = $row['fldNonTaxAllow'];
                             $n_diff = ($row['fldNightDiff'] * $hourly_rate) * 125 / 100; //125% rate for night differential
                             $o_pay = ($row['fldOvertime'] * $hourly_rate) * 130 / 100;   //130% rate for ot pay
@@ -108,14 +106,6 @@ if(!isset($_SESSION['user']))
                         <td><?php echo '₱' . number_format($basic_pay, 2); ?></td> 
                     </tr>
                     <tr>
-                        <td>Taxable Allowance: </td>
-                        <td><?php echo '₱' . number_format($tax_allowance, 2); ?></td> 
-                    </tr>
-                    <tr>
-                        <td>Non-Taxable Allowance: </td>
-                        <td><?php echo '₱' . number_format($non_tax, 2); ?></td>
-                    </tr>
-                    <tr>
                         <td>Night Differential: </td>
                         <td><?php echo '₱' . number_format($n_diff, 2); ?></td>
                     </tr>
@@ -125,7 +115,7 @@ if(!isset($_SESSION['user']))
                     </tr>
                     <tr>
                         <td>Gross Pay: </td>
-                        <td><?php echo '₱' . number_format($gross_pay, 2); //tax and non tax allowance not accounted for, going to be removed soon?></td>
+                        <td><?php echo '₱' . number_format($gross_pay, 2);?></td>
                     </tr>
                     <tr>
                         <td>SSS Contribution: </td>
