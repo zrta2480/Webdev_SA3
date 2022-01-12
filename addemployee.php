@@ -66,7 +66,7 @@ if(!isset($_SESSION['user']))
                     <br />
                     Night Differential:   <input type="text" name="employeeNightDiff" />
                     <br />
-                    Overtime Pay:  <input type="text" name="employeeOvertime" />
+                    Overtime Hours:  <input type="text" name="employeeOvertime" />
                     <br />
                     <br />
                     <input type="submit" name="submit_new_employee" value="Save" />
