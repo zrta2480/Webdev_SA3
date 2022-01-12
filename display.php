@@ -6,7 +6,8 @@ if(!isset($_POST['enterSearch']) || isset($_POST['displayAll']))
     $sql = "SELECT * FROM tblemployees";
     $results = mysqli_query($con, $sql);
 
-    echo "<table border='1'>";
+    echo "<table>";
+    echo "<thead>";
     echo "<tr>";
     echo "<th>Employee ID</th>";
     echo "<th>Last Name</th>";
@@ -21,11 +22,13 @@ if(!isset($_POST['enterSearch']) || isset($_POST['displayAll']))
     echo "<th> </th>"; //Delete
     echo "<th> </th>"; //Payroll
     echo "</tr>";
+    echo "</thead>";
 
     if(mysqli_num_rows($results) > 0)
     {
         while($row = mysqli_fetch_assoc($results))
         {
+            echo "<tbody>";
             echo "<tr>";
             echo "<td>". $row['fldindex'] ."</td>";
             echo "<td>". $row['fldlastname'] ."</td>";
@@ -40,12 +43,14 @@ if(!isset($_POST['enterSearch']) || isset($_POST['displayAll']))
             echo "<td><a href='deleteemployee.php?employeeID=". $row['fldindex'] ."'>Delete</a> </td>"; //delete link
             echo "<td><a href='payroll.php?employeeID=". $row['fldindex'] ."'>Payroll</a> </td>"; //payroll link
             echo "</tr>";
+            echo "</tbody>";
         }
     }
     else {
         echo "<tr>";
         echo "<td>No Entries</td>";
         echo "</tr>";
+        echo "</tbody>";
     }
 
     echo "</table>";
