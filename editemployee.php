@@ -14,6 +14,9 @@ function edit_form($con, $submitted_ID)
     $old_position = "[your employee position]";
     $old_type = "[your employee type]";
     $old_period = "[your payment period]";
+    $old_basic = "[your basic pay]";
+    $old_night = "[your night differential]";
+    $old_overtime = "your overtime hours";
     $selected_employee = $submitted_ID;
     $sql = "SELECT * FROM tblemployees";
     $result = mysqli_query($con, $sql);
@@ -29,6 +32,9 @@ function edit_form($con, $submitted_ID)
             $old_position = $row['fldposition'];
             $old_type = $row['fldemployeetype'];
             $old_period = $row['fldperiod'];
+            $old_basic = $row['fldBasicPay'];
+            $old_night = $row['fldNightDiff'];
+            $old_overtime = $row['fldOvertime'];
         }
     }
 
@@ -108,6 +114,12 @@ function edit_form($con, $submitted_ID)
         echo "Semi-Monthly: <input type='radio' name='employeePeriod' value='Semi-Monthly' />";
     }
     echo "<br />";
+    echo "Basic Pay: <input type='text' value='" . $old_basic . "' name='employeeBasic' />";
+    echo "<br />";
+    echo "Last Name: <input type='text' value='" . $old_night . "' name='employeeNightDiff' />";
+    echo "<br />";
+    echo "First Name: <input type='text' value='" . $old_overtime . "' name='employeeOvertime' />";
+    echo "<br />";
     echo "<input type='hidden' name='selectedEmployee' value='" . $selected_employee . "' />";
     echo "<input type='submit' name='submit_update_employee' value='Update' />";
     echo "</form>";
@@ -123,6 +135,9 @@ function retry_edit_form()
     $new_position = $_POST['employeePosition'];
     $new_type = $_POST['employeeType'];
     $new_period = $_POST['employeePeriod'];
+    $new_basic = $_POST['employeeBasic'];
+    $new_night = $_POST['employeeNightDiff'];
+    $new_overtime = $_POST['employeeOvertime'];
     $indentifier = $_POST['selectedEmployee'];
 
     echo "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='post'>";
@@ -199,6 +214,12 @@ function retry_edit_form()
         echo "Semi-Monthly: <input type='radio' name='employeePeriod' value='Semi-Monthly' />";
     }
     echo "<br />";
+    echo "Basic Pay: <input type='text' value='" . $new_basic . "' name='employeeBasic' />";
+    echo "<br />";
+    echo "Last Name: <input type='text' value='" . $new_night . "' name='employeeNightDiff' />";
+    echo "<br />";
+    echo "First Name: <input type='text' value='" . $new_overtime . "' name='employeeOvertime' />";
+    echo "<br />";
     echo "<input type='hidden' name='selectedEmployee' value='" . $indentifier . "' />";
     echo "<input type='submit' name='submit_update_employee' value='Update' />";
     echo "</form>";
@@ -248,6 +269,9 @@ function retry_edit_form()
                     $new_job_position = $_POST['employeePosition'];
                     $new_employement_type = $_POST['employeeType'];
                     $new_payment_period = $_POST['employeePeriod'];
+                    $new_basic_pay = $_POST['employeeBasic'];
+                    $new_night_diff = $_POST['employeeNightDiff'];
+                    $new_overtime_hours = $_POST['employeeOvertime'];
 
                     $find_sql = "SELECT * FROM tblemployees";
                     $find_result = mysqli_query($con, $find_sql);
@@ -263,7 +287,7 @@ function retry_edit_form()
                         }
                     }
 
-                    if(empty($new_ID) || empty($new_last_name) || empty($new_first_name) || empty($new_job_position) || empty($new_job_position) || empty($new_employement_type) || empty($new_payment_period))
+                    if(empty($new_ID) || empty($new_last_name) || empty($new_first_name) || empty($new_job_position) || empty($new_job_position) || empty($new_employement_type) || empty($new_payment_period) || empty($new_basic_pay) || empty($new_night_diff) || empty($new_overtime_hours))
                     {
                         retry_edit_form();
                         echo "<h3>Blank data are not allowed!!!</h3>";
@@ -276,7 +300,8 @@ function retry_edit_form()
                         echo "<br />";
                     }
                     else {
-                        $update_sql = "UPDATE tblemployees SET fldindex='$new_ID', fldlastname='$new_last_name', fldfirstname='$new_first_name', fldposition='$new_job_position', fldemployeetype='$new_employement_type', fldperiod='$new_payment_period' WHERE fldindex='$selected_ID'";
+                        $update_sql = "UPDATE tblemployees SET fldindex='$new_ID', fldlastname='$new_last_name', fldfirstname='$new_first_name', fldposition='$new_job_position', fldemployeetype='$new_employement_type', fldperiod='$new_payment_period', fldBasicPay='$new_basic_pay', fldNightDiff='$new_night_diff', fldOvertime='$new_overtime_hours'
+                        WHERE fldindex='$selected_ID'";
                         if($con->query($update_sql) == TRUE)
                         {
                             retry_edit_form();
