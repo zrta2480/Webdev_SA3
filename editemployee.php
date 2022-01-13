@@ -304,6 +304,10 @@ function retry_edit_form()
                         retry_edit_form();
                         echo "<h3>Blank data are not allowed!!!</h3>";
                         echo "<br />";
+                        if($new_ID == 0)
+                        {
+                            echo "ID number 0 is not allowed!!! <br />";
+                        }
                     }
                     elseif($verify_id)
                     {

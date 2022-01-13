@@ -111,6 +111,10 @@ if(!isset($_SESSION['user']))
                 {
                     echo "Please fill in all the required information!!! <br />";
                     //echo $employee_position;
+                    if($employee_ID == 0)
+                    {
+                        echo "ID number 0 is not allowed!!! <br />";
+                    }
                 }
                 else {
                     $employee_position = $_POST['employeePosition'];
