@@ -90,14 +90,14 @@ if(!isset($_SESSION['user']))
             include "dbs-connect.php";
             if(isset($_POST['submit_new_employee']))
             {
-
+                
                 $employee_ID = $_POST['employeeID'];
                 $emplyee_last_name = $_POST['employeeLast'];
                 $employee_first_name = $_POST['employeeFirst'];
                 //$employee_password = $_POST['employeePassword'];
-                $employee_position = $_POST['employeePosition'];
-                $employee_type = $_POST['employeeType'];
-                $employee_period = $_POST['employeePeriod'];
+                //$employee_position = $_POST['employeePosition'];
+                //$employee_type = $_POST['employeeType'];
+                //$employee_period = $_POST['employeePeriod'];
                 $employee_basic_pay = $_POST['employeeBasicPay'];
                 $employee_night_diff = $_POST['employeeNightDiff'];
                 $employee_overtime = $_POST['employeeOvertime'];
@@ -107,12 +107,16 @@ if(!isset($_SESSION['user']))
                 //echo $employee_type . "<br />";
                 //echo $employee_period . "<br />";
 
-                if(empty($employee_ID) || empty($emplyee_last_name) || empty($employee_first_name) || empty($employee_position) || empty($employee_type) || empty($employee_period) || !is_numeric($employee_basic_pay) || !is_numeric($employee_night_diff) || !is_numeric($employee_overtime))
+                if(empty($employee_ID) || empty($emplyee_last_name) || empty($employee_first_name) || empty($_POST['employeePosition']) || empty($_POST['employeeType']) || empty($_POST['employeePeriod']) || !is_numeric($employee_basic_pay) || !is_numeric($employee_night_diff) || !is_numeric($employee_overtime))
                 {
                     echo "Please fill in all the required information!!! <br />";
-                    echo $employee_basic_pay;
+                    //echo $employee_position;
                 }
                 else {
+                    $employee_position = $_POST['employeePosition'];
+                    $employee_type = $_POST['employeeType'];
+                    $employee_period = $_POST['employeePeriod'];
+
                     $sql = "SELECT * FROM tblemployees";
                     $result = mysqli_query($con, $sql);
                     $verify_ID = false;
