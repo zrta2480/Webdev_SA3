@@ -311,6 +311,12 @@ function retry_edit_form()
                         echo "<h3>ID number already exists!!!</h3>";
                         echo "<br />";
                     }
+                    elseif($new_ID <= 0 || !is_numeric($new_ID))
+                    {
+                        retry_edit_form();
+                        echo "<h3>ID number must be a non-zero integer!!!</h3>";
+                        echo "<br />";
+                    }
                     else {
                         $update_sql = "UPDATE tblemployees SET fldindex='$new_ID', fldlastname='$new_last_name', fldfirstname='$new_first_name', fldposition='$new_job_position', fldemployeetype='$new_employement_type', fldperiod='$new_payment_period', fldBasicPay='$new_basic_pay', fldNightDiff='$new_night_diff', fldOvertime='$new_overtime_hours'
                         WHERE fldindex='$selected_ID'";

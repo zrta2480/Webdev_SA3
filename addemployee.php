@@ -133,6 +133,11 @@ if(!isset($_SESSION['user']))
                         echo "<h3>Duplicate Employee ID is NOT allowed!!!</h3>";
                         echo "<br />";
                     }
+                    elseif($employee_ID <= 0 || !is_numeric($employee_ID))
+                    {
+                        echo "<h3>Employee ID must be non-zero number!!!</h3>";
+                        echo "<br />";
+                    }
                     else {
                         $enter_sql = "INSERT INTO tblemployees (fldindex, fldlastname, fldfirstname, fldposition, fldemployeetype, fldperiod, fldBasicPay, fldNightDiff, fldOvertime)
                         VALUES('$employee_ID', '$emplyee_last_name', '$employee_first_name', '$employee_position', '$employee_type', '$employee_period', '$employee_basic_pay', '$employee_night_diff', '$employee_overtime')";
