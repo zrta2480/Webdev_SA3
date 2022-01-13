@@ -2,10 +2,10 @@
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 12, 2022 at 11:35 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.2
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 13-01-2022 a las 03:24:34
+-- Versión del servidor: 10.4.17-MariaDB
+-- Versión de PHP: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dbpayroll`
+-- Base de datos: `dbpayroll`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblemployees`
+-- Estructura de tabla para la tabla `tblemployees`
 --
 
 CREATE TABLE `tblemployees` (
@@ -40,21 +40,21 @@ CREATE TABLE `tblemployees` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tblemployees`
+-- Volcado de datos para la tabla `tblemployees`
 --
 
 INSERT INTO `tblemployees` (`fldindex`, `fldlastname`, `fldfirstname`, `fldposition`, `fldemployeetype`, `fldperiod`, `fldBasicPay`, `fldNightDiff`, `fldOvertime`) VALUES
-(9090, 'Broad', 'Chris', 'Manager', 'Full', 'Monthly', 22435, 0, 3),
-(123456, 'Bazinga', 'Joey', 'Staff', 'Part', 'Monthly', 24432.98, 1, 0),
-(420690, 'Maneetapho', 'Garnt', 'Manager', 'Full', 'Monthly', 23409.43, 2, 3),
-(930000, 'Colquhoun', 'Connor', 'Executive', 'Full', 'Semi-Monthly', 25242.34, 2, 2);
+(1, 'Broad', 'Chris', 'Manager', 'Full', 'Monthly', 40000.45, 0, 3),
+(2, 'Bazinga', 'Joey', 'Staff', 'Part', 'Monthly', 14000.55, 1, 0),
+(3, 'Maneetapho', 'Garnt', 'Manager', 'Full', 'Monthly', 40000.45, 2, 3),
+(4, 'Colquhoun', 'Connor', 'Executive', 'Full', 'Semi-Monthly', 31800.65, 2, 2);
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `tblemployees`
+-- Indices de la tabla `tblemployees`
 --
 ALTER TABLE `tblemployees`
   ADD UNIQUE KEY `fldindex` (`fldindex`);
