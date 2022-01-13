@@ -229,6 +229,7 @@ function retry_edit_form()
 
 <html>
     <head>
+        <title>Edit Employee</title>
         <link rel="stylesheet" href="sa3-stylesheet.css">
     </head>
 

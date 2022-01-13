@@ -9,6 +9,7 @@ if(!isset($_SESSION['user']))
 
 <html>
     <head>
+        <title>Payroll Report</title>
         <link rel="stylesheet" href="sa3-stylesheet.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>  
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>  
@@ -39,7 +40,9 @@ if(!isset($_SESSION['user']))
 
         <div class="main-body">
             <div class="main-header">
-                <h1>Payroll Info</h1>
+                <hr>
+                    <h1>Payroll Report</h1>
+                <hr>
             </div>
 
             <?php

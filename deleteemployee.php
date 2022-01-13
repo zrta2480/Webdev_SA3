@@ -8,6 +8,7 @@ if(!isset($_SESSION['user']))
 ?>
 <html>
     <head>
+        <title>Delete Employee</title>
         <link rel="stylesheet" href="sa3-stylesheet.css">
     </head>
 

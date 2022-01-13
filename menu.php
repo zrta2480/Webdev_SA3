@@ -9,8 +9,8 @@ if(!isset($_SESSION['user']))
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Menu</title>
         <link rel="stylesheet" href="sa3-stylesheet.css">
-
     </head>
 
     <body>

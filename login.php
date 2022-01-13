@@ -5,6 +5,7 @@ unset($_SESSION['user']);
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Admin Login</title>
         <link rel="stylesheet" href="sa3-stylesheet.css">
     </head>
 
