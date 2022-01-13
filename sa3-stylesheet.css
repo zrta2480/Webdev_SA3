@@ -3,6 +3,11 @@
     font: 400 1em "Source Sans Pro", Helvetica, Arial, sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: darkred;
+}
+
 .unstyled {
   list-style: none;
   padding: 0;
@@ -377,4 +382,8 @@ input[type=submit]:hover {
 }
 .container .info span .fa {
   color: #EF3B3A;
+}
+
+#ptable {
+
 }

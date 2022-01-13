@@ -10,7 +10,8 @@ if(!isset($_SESSION['user']))
 <html>
     <head>
         <link rel="stylesheet" href="sa3-stylesheet.css">
-        <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>  
     </head>
 
     <body>
@@ -124,60 +125,90 @@ if(!isset($_SESSION['user']))
                     <tbody>
                         <tr>
                             <td>Basic pay: </td>
-                            <td><?php echo '₱' . number_format($basic_pay, 2); ?></td> 
+                            <td><?php echo number_format($basic_pay, 2). ' php'; ?></td> 
                         </tr>
                         <tr>
                             <td>Night Differential: </td>
-                            <td><?php echo '₱' . number_format($n_diff, 2); ?></td>
+                            <td><?php echo number_format($n_diff, 2). ' php'; ?></td>
                         </tr>
                         <tr>
                             <td>Overtime Pay: </td>
-                            <td><?php echo '₱' . number_format($o_pay, 2); ?></td>
+                            <td><?php echo number_format($o_pay, 2). ' php'; ?></td>
                         </tr>
                         <tr>
                             <td>Gross Pay: </td>
-                            <td><?php echo '₱' . number_format($gross_pay, 2);?></td>
+                            <td><?php echo number_format($gross_pay, 2). ' php';?></td>
                         </tr>
                         <tr>
                             <td>SSS Contribution: </td>
-                            <td><?php echo '₱' . number_format($sss, 2); ?></td>
+                            <td><?php echo number_format($sss, 2). ' php'; ?></td>
                         </tr>
                         <tr>
                             <td>PhilHealth Contribution: </td>
-                            <td><?php echo '₱' . number_format($philhealth, 2); ?></td>
+                            <td><?php echo number_format($philhealth, 2). ' php'; ?></td>
                         </tr>
                         <tr>
                             <td>PAG-IBIG Contribution: </td>
-                            <td><?php echo '₱' . number_format($pagibig, 2); ?></td>
+                            <td><?php echo number_format($pagibig, 2). ' php'; ?></td>
                         </tr>
                         <tr>
                             <td>Total Deductions: </td>
-                            <td><?php echo '₱' . number_format($total_deductions, 2); ?></td>
+                            <td><?php echo number_format($total_deductions, 2). ' php'; ?></td>
                         </tr>
                         <tr>
                             <td id = "netpay">Net Pay:</td>
-                            <td id = "netpay"><?php echo '₱' . number_format($net_pay, 2); ?></td>
+                            <td id = "netpay"><?php echo number_format($net_pay, 2). ' php'; ?></td>
                         </tr>
                     </tbody>
                 </table> 
-                <button onclick="downloadPDFWithjsPDF()">Generate PDF</button>
+                <button onclick="generate()">Generate PDF</button>
 
-            <script>
-                function downloadPDFWithjsPDF() {
-                  var doc = new jspdf.jsPDF('p', 'pt', 'a4');
-
-                  doc.html(document.querySelector('#ptable'), {
-                    callback: function (doc) {
-                      doc.save('Payroll Report.pdf');
-                    },
-                    margin: [60, 60, 60, 60],
-                    x: 32,
-                    y: 32,
-                  });
-                }
-
-                document.querySelector('#jsPDF').addEventListener('click', downloadPDFWithjsPDF);
-            </script>
+                <script type="text/javascript">  
+                function generate() {  
+                    var doc = new jsPDF('p', 'pt', 'letter');  
+                    var htmlstring = '';  
+                    var tempVarToCheckPageHeight = 0;  
+                    var pageHeight = 0;  
+                    pageHeight = doc.internal.pageSize.height;  
+                    specialElementHandlers = {  
+                        // element with id of "bypass" - jQuery style selector  
+                        '#bypassme': function(element, renderer) {  
+                            // true = "handled elsewhere, bypass text extraction"  
+                            return true  
+                        }  
+                    };  
+                    margins = {  
+                        top: 150,  
+                        bottom: 60,  
+                        left: 40,  
+                        right: 40,  
+                        width: 600  
+                    };  
+                    var y = 20;  
+                    doc.setLineWidth(2);  
+                    doc.text(200, y = y + 30, "PAYROLL REPORT");  
+                    doc.autoTable({  
+                        html: '#ptable',  
+                        startY: 70,  
+                        theme: 'grid',  
+                        columnStyles: {  
+                            0: {  
+                                cellWidth: 180,  
+                            },  
+                            1: {  
+                                cellWidth: 180,  
+                            },  
+                            2: {  
+                                cellWidth: 180,  
+                            }  
+                        },  
+                        styles: {  
+                            minCellHeight: 40  
+                        }  
+                    })  
+                    doc.save('Payroll Report.pdf');  
+                }  
+                </script>  
 
             </div>
         </div>
