@@ -10,12 +10,8 @@ if(!isset($_SESSION['user']))
 <html>
     <head>
         <link rel="stylesheet" href="sa3-stylesheet.css">
+        <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
     </head>
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jszip.min.js"></script>
-    <script src="js/kendo.all.min.js"></script>
-    <script src="https://kendo.cdn.telerik.com/2017.3.913/js/pako_deflate.min.js"></script>
 
     <body>
         <header class="header" role="banner">
@@ -164,14 +160,23 @@ if(!isset($_SESSION['user']))
                         </tr>
                     </tbody>
                 </table> 
-                <button onclick="createPDF()">Generate PDF</button>
+                <button onclick="downloadPDFWithjsPDF()">Generate PDF</button>
 
             <script>
-                $(document).ready(function() {
-                    function createPDF() {
-                        alert("test");
-                    }
-            }
+                function downloadPDFWithjsPDF() {
+                  var doc = new jspdf.jsPDF('p', 'pt', 'a4');
+
+                  doc.html(document.querySelector('#ptable'), {
+                    callback: function (doc) {
+                      doc.save('Payroll Report.pdf');
+                    },
+                    margin: [60, 60, 60, 60],
+                    x: 32,
+                    y: 32,
+                  });
+                }
+
+                document.querySelector('#jsPDF').addEventListener('click', downloadPDFWithjsPDF);
             </script>
 
             </div>
