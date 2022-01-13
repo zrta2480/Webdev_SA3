@@ -7,10 +7,15 @@ if(!isset($_SESSION['user']))
 }
 ?>
 
-<html>]
+<html>
     <head>
         <link rel="stylesheet" href="sa3-stylesheet.css">
     </head>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jszip.min.js"></script>
+    <script src="js/kendo.all.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2017.3.913/js/pako_deflate.min.js"></script>
 
     <body>
         <header class="header" role="banner">
@@ -113,50 +118,62 @@ if(!isset($_SESSION['user']))
             ?>
 
             <div class="payroll-table">
-                <table>
+                <table id="ptable">
                     <thead>
-                    <tr>
-                        <th> </th>
-                        <th>Payroll for <?php echo $user_first_name. " " .$user_last_name; ?></th> 
-                    </tr>
+                        <tr>
+                            <th> </th>
+                            <th>Payroll for <?php echo $user_first_name. " " .$user_last_name; ?></th> 
+                        </tr>
                     </thead>
-                    <tr>
-                        <td>Basic pay: </td>
-                        <td><?php echo '₱' . number_format($basic_pay, 2); ?></td> 
-                    </tr>
-                    <tr>
-                        <td>Night Differential: </td>
-                        <td><?php echo '₱' . number_format($n_diff, 2); ?></td>
-                    </tr>
-                    <tr>
-                        <td>Overtime Pay: </td>
-                        <td><?php echo '₱' . number_format($o_pay, 2); ?></td>
-                    </tr>
-                    <tr>
-                        <td>Gross Pay: </td>
-                        <td><?php echo '₱' . number_format($gross_pay, 2);?></td>
-                    </tr>
-                    <tr>
-                        <td>SSS Contribution: </td>
-                        <td><?php echo '₱' . number_format($sss, 2); ?></td>
-                    </tr>
-                    <tr>
-                        <td>PhilHealth Contribution: </td>
-                        <td><?php echo '₱' . number_format($philhealth, 2); ?></td>
-                    </tr>
-                    <tr>
-                        <td>PAG-IBIG Contribution: </td>
-                        <td><?php echo '₱' . number_format($pagibig, 2); ?></td>
-                    </tr>
-                    <tr>
-                        <td>Total Deductions: </td>
-                        <td><?php echo '₱' . number_format($total_deductions, 2); ?></td>
-                    </tr>
-                    <tr>
-                        <td id = "netpay">Net Pay:</td>
-                        <td id = "netpay"><?php echo '₱' . number_format($net_pay, 2); ?></td>
-                    </tr>
-                </table>
+                    <tbody>
+                        <tr>
+                            <td>Basic pay: </td>
+                            <td><?php echo '₱' . number_format($basic_pay, 2); ?></td> 
+                        </tr>
+                        <tr>
+                            <td>Night Differential: </td>
+                            <td><?php echo '₱' . number_format($n_diff, 2); ?></td>
+                        </tr>
+                        <tr>
+                            <td>Overtime Pay: </td>
+                            <td><?php echo '₱' . number_format($o_pay, 2); ?></td>
+                        </tr>
+                        <tr>
+                            <td>Gross Pay: </td>
+                            <td><?php echo '₱' . number_format($gross_pay, 2);?></td>
+                        </tr>
+                        <tr>
+                            <td>SSS Contribution: </td>
+                            <td><?php echo '₱' . number_format($sss, 2); ?></td>
+                        </tr>
+                        <tr>
+                            <td>PhilHealth Contribution: </td>
+                            <td><?php echo '₱' . number_format($philhealth, 2); ?></td>
+                        </tr>
+                        <tr>
+                            <td>PAG-IBIG Contribution: </td>
+                            <td><?php echo '₱' . number_format($pagibig, 2); ?></td>
+                        </tr>
+                        <tr>
+                            <td>Total Deductions: </td>
+                            <td><?php echo '₱' . number_format($total_deductions, 2); ?></td>
+                        </tr>
+                        <tr>
+                            <td id = "netpay">Net Pay:</td>
+                            <td id = "netpay"><?php echo '₱' . number_format($net_pay, 2); ?></td>
+                        </tr>
+                    </tbody>
+                </table> 
+                <button onclick="createPDF()">Generate PDF</button>
+
+            <script>
+                $(document).ready(function() {
+                    function createPDF() {
+                        alert("test");
+                    }
+            }
+            </script>
+
             </div>
         </div>
 
@@ -165,3 +182,4 @@ if(!isset($_SESSION['user']))
         ?>
     </body>
 </html>
+
